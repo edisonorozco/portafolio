@@ -40,7 +40,7 @@ header {
 
 .card-header {
   background: #2c3a47;
-  padding: 60px 40px;
+  padding: 15px 40px;
 }
 
 .pic {
@@ -72,7 +72,7 @@ header {
 }
 
 .profile-card .card-header h5 {
-  margin-top: 5px;
+  margin-top: 25px;
   margin-bottom: 5px;
 }
 
@@ -84,7 +84,7 @@ header {
 .social-media {
   display: flex;
   justify-content: center;
-  margin: 20px 0;
+  padding: 20px 0;
 }
 
 .social-media a {
@@ -104,7 +104,6 @@ header {
   padding: 12px 50px;
   color: #15a4fa;
   border: 2px solid #15a4fa;
-  margin-top: 16px;
   transition: 0.3s linear;
   text-decoration: none;
   border-radius: 5px;
@@ -116,8 +115,9 @@ header {
 }
 
 .card-footer {
-  background: #f4f4f4;
-  padding: 30px 10px;
+  background: #2c3a47;
+  padding: 10px 10px;
+  border-top: 1px solid #bbb ;
 }
 
 .border {
@@ -270,7 +270,7 @@ main {
 @media screen and (max-width: 600px) {
   .linetime .center-line {
     left: 40px;
-    top: 50px;
+    top: 60px;
   }
 
   .linetime .row {
@@ -290,6 +290,10 @@ main {
   }
 
   .row-1 section .icon {
+    left: -60px;
+  }
+
+  .row-2 section .icon {
     left: -60px;
   }
 }
