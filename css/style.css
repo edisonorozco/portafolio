@@ -168,17 +168,74 @@ main .portafolio .container-portafolio {
   justify-content: space-between;
 }
 
-main .portafolio .container-portafolio img {
+main .portafolio .container-portafolio .item {
   width: 32%;
   margin: auto;
   margin-bottom: 10px;
   border-radius: 5px;
 }
 
-main .portafolio .container-portafolio img:hover {
+main .portafolio .container-portafolio .item img {
+  width: 100%;
+  border-radius: 5px;
+}
+
+main .portafolio .container-portafolio .item img:hover {
   opacity: 0.6;
   cursor: pointer;
 }
+
+/***************OVERLAY******************/
+
+.overlay {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.9);
+  width: 100%;
+  height: 100vh;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.overlay.active {
+  display: flex;
+}
+
+.overlay img {
+  max-width: 100%;
+}
+
+.overlay .description {
+  display: block;
+  background: #fff;
+  padding: 20px;
+  text-align: center;
+  margin-top: 5px;
+  border-radius: 10px;
+  max-width: 50%;
+}
+
+.container-img {
+  position: relative;
+}
+
+.overlay #btn-close-image {
+  background: none;
+  font-size: 20px;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  position: absolute;
+  right: -20px;
+  top: -20px;
+}
+
+/***************FOOTER******************/
 
 footer {
   width: 100%;

@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="css/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,600;1,300&display=swap"
         rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
     <title>Portafolio</title>
 </head>
 
@@ -27,12 +28,12 @@
                     <a href="about/about.html" class="call-to-action">Acerca de</a>
                     <a href="#contact-now" class="call-to-action">Contactame ahora</a>
                 </div>
-                
+
             </div>
         </div>
     </header>
 
-    <main>
+    <main class="main">
         <section class="abaout-of">
             <div class="container">
                 <div class="container-text-abaout">
@@ -46,20 +47,20 @@
             <div class="container-icons">
 
                 <div class="single-icon">
-                    <img src="img/fast-desing.svg" alt="diseño rapido" class="fast-desing">
+                    <img src="img/svg/fast-desing.svg" alt="diseño rapido" class="fast-desing">
                     <h3>Diseños rapidos</h3>
                     <p>Diseños rapidos de paginas web con html y CSS para hacer tus diseños 100% personalizado a tu
                         gusto</p>
                 </div>
 
                 <div class="single-icon">
-                    <img src="img/productivity.svg" alt="Alto rendimiento" class="productivity">
+                    <img src="img/svg/productivity.svg" alt="Alto rendimiento" class="productivity">
                     <h3>Software de alto rendimiento</h3>
                     <p>Paginas web y apps de escritorio con alto rendimiento en el procesamiento de información</p>
                 </div>
 
                 <div class="single-icon">
-                    <img src="img/responsive.svg" alt="Páginas responsivas" class="responsive">
+                    <img src="img/svg/responsive.svg" alt="Páginas responsivas" class="responsive">
                     <h3>Páginas web responsivas</h3>
                     <p>Paginas web adaptativas a cualquier tipo de dispositivo como celulares, tablets, pc, tv, etc</p>
                 </div>
@@ -69,20 +70,53 @@
         <section class="portafolio" id="portafolio">
             <div class="container">
                 <div class="container-text-portafolio">
+
                     <h2 class="title-portafolio"> Prtafolio de servicios </h2>
+
                     <p class="parragraf-portafolio">Contactame si estas preparado</p>
+
                     <div class="container-portafolio">
-                        <img src="img/1.jpg" alt="">
-                        <img src="img/2.jpg" alt="">
-                        <img src="img/3.jpg" alt="">
-                        <img src="img/4.jpg" alt="">
-                        <img src="img/5.jpg" alt="">
-                        <img src="img/6.jpg" alt="">
+
+                        <div class="item" data-category="fast-desing" data-tags="dsing, fast, beutifull"
+                            data-description="Fast and beuty desing">
+                            <img src="img/1.jpg" alt="">
+                        </div>
+
+                        <div class="item">
+                            <img src="img/2.jpg" alt="">
+                        </div>
+
+                        <div class="item">
+                            <img src="img/3.jpg" alt="">
+                        </div>
+
+                        <div class="item">
+                            <img src="img/4.jpg" alt="">
+                        </div>
+
+                        <div class="item">
+                            <img src="img/5.jpg" alt="">
+                        </div>
+
+                        <div class="item">
+                            <img src="img/6.jpg" alt="">
+                        </div>
+
                     </div>
                 </div>
             </div>
         </section>
+
     </main>
+
+    <section class="overlay" id="overlay">
+        <div class="container-img">
+            <button id="btn-close-image" class="icon">
+                <i class='bx bxs-comment-x'> </i></button>
+            <img src="" alt="">
+        </div>
+        <p class="description"></p>
+    </section>
 
     <footer>
         <section class="contact" id="contact-now">
@@ -102,6 +136,8 @@
             </div>
         </section>
     </footer>
+
+    <script src="js/main.js"></script>
 </body>
 
 </html>
