@@ -110,12 +110,12 @@
     </main>
 
     <section class="overlay" id="overlay">
-        <div class="container-img">
+        <div class="container-services">
             <button id="btn-close-image" class="icon">
-                <i class='bx bxs-comment-x'> </i></button>
+                <i class='bx bxs-x-circle'></i></button>
             <img src="" alt="">
         </div>
-        <p class="description"></p>
+        <div class="description"></div>
     </section>
 
     <footer>
@@ -125,12 +125,13 @@
                     <h2 class="title-footer">Contacto</h2>
                     <p class="title-parragraf">Envie su mensaje</p>
                 </div>
-                <form action="" class="form" method="POST">
-                    <input type="text" name="name" placeholder="Nombre" id="" class="name-contact">
-                    <input type="email" name="email" placeholder="Correo" id="" class="email-contact">
+                <form action="" class="form" method="POST" id="form-contact-now">
+                    <input type="text" name="name-contact" placeholder="Nombre" id="" class="name-contact">
+                    <input type="email" name="email-contact" placeholder="Correo" id="" class="email-contact">
+                    <input type="text" name="subject" placeholder="Asunto" id="" class="subject">
                     <textarea name="message" class="message" placeholder="Mensaje"></textarea>
                     <div class="derecha">
-                        <input type="submit" value="Contactar" class="send-button">
+                        <input type="submit" value="Contactar" class="send-button" id="send-button">
                     </div>
                 </form>
             </div>

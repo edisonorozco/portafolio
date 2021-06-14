@@ -208,6 +208,7 @@ main .portafolio .container-portafolio .item img:hover {
 
 .overlay img {
   max-width: 100%;
+  border-radius: 10px;
 }
 
 .overlay .description {
@@ -217,11 +218,12 @@ main .portafolio .container-portafolio .item img:hover {
   text-align: center;
   margin-top: 5px;
   border-radius: 10px;
-  max-width: 50%;
+  max-width: 100%;
 }
 
-.container-img {
+.container-services {
   position: relative;
+
 }
 
 .overlay #btn-close-image {
@@ -239,7 +241,7 @@ main .portafolio .container-portafolio .item img:hover {
 
 footer {
   width: 100%;
-  height: 600px;
+  height: 650px;
   padding: 60px;
   background-image: url(../img/footer.png);
 }
@@ -270,6 +272,7 @@ footer .form {
 
 footer .form .name-contact,
 footer .form .email-contact,
+footer .form .subject,
 footer .form .message {
   display: inline-block;
   padding: 15px 20px;
@@ -355,5 +358,13 @@ footer .form .send-button:hover {
 
   main .portafolio .container-portafolio img {
     width: 48%;
+  }
+
+  .overlay #btn-close-image {
+    right: -15x;
+  }
+  .container-services {
+    position: relative;
+    width: 90%;
   }
 }
