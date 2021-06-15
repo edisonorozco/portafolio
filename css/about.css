@@ -259,11 +259,14 @@ main {
   left: -57px;
 }
 
-.row section .details,
 .row section .bottom {
   display: flex;
   align-items: center;
   justify-content: flex-end;
+}
+
+.row section .details {
+  display: flex;
 }
 
 .row section .details .title {
