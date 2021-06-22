@@ -223,7 +223,6 @@ main .portafolio .container-portafolio .item img:hover {
 
 .container-services {
   position: relative;
-
 }
 
 .overlay #btn-close-image {
@@ -270,20 +269,66 @@ footer .form {
   margin: auto;
 }
 
-footer .form .name-contact,
-footer .form .email-contact,
-footer .form .subject,
-footer .form .message {
-  display: inline-block;
-  padding: 15px 20px;
-  margin-bottom: 20px;
-  background: none;
-  border: 1px solid #999999;
-  color: #999999;
-  border-radius: 3px;
+footer .form .form-control {
+  margin-bottom: 10px;
+  padding-bottom: 20px;
+  position: relative;
+}
+
+footer .form .form-control input,
+footer .form .form-control textarea {
+  border: 2px solid #f0f0f0;
+  border-radius: 4px;
+  display: block;
   font-family: "Open Sans", sans-serif, Verdana;
-  font-weight: 300;
-  font-size: 18px;
+  font-size: 14px;
+  width: 100%;
+  padding: 10px;
+  background: none;
+}
+
+footer .form .form-control i {
+  position: absolute;
+  top: 15px;
+  right: 10px;
+  visibility: hidden;
+}
+
+footer .form .form-control small {
+  visibility: hidden;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+footer .form .success input,
+footer .form .success textarea {
+  border-color: #2ecc71;
+}
+
+footer .form .error input,
+footer .form .error textarea {
+  border-color: #e74c3c;
+}
+
+footer .form .error input,
+footer .form .error textarea {
+  border-color: #e74c3c;
+}
+
+footer .form .form-control.success .icon-success {
+  color: #2ecc71;
+  visibility: visible;
+}
+
+footer .form .form-control.error .icon-error {
+  color: #e74c3c;
+  visibility: visible;
+}
+
+footer .form .form-control.error small {
+  color: #e74c3c;
+  visibility: visible;
 }
 
 footer .form .message {
@@ -312,8 +357,9 @@ footer .form .send-button:hover {
   cursor: pointer;
 }
 
-@media screen and (max-width: 600px) {
+/**************************************************/
 
+@media screen and (max-width: 600px) {
   header {
     height: 650px;
   }
@@ -326,11 +372,10 @@ footer .form .send-button:hover {
     margin: 120px 0;
   }
 
-  header .container-text-header .menu a{ 
+  header .container-text-header .menu a {
     width: 90%;
     margin: 5px auto;
   }
-
 }
 
 @media screen and (max-width: 540px) {

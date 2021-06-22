@@ -113,23 +113,51 @@
     </section>
 
     <footer>
-        <section class="contact" id="contact-now">
-            <div class="container">
+
+            <div class="footer-container">
+
                 <div class="footer-texts">
                     <h2 class="title-footer">Contacto</h2>
                     <p class="title-parragraf">Envie su mensaje</p>
                 </div>
+
                 <form action="" class="form" method="POST" id="form-contact-now">
-                    <input type="text" name="name-contact" placeholder="Nombre" id="" class="name-contact">
-                    <input type="email" name="email-contact" placeholder="Correo" id="" class="email-contact">
-                    <input type="text" name="subject" placeholder="Asunto" id="subject" class="subject">
-                    <textarea name="message" class="message" placeholder="Mensaje" id="message"></textarea>
+
+                    <div class="form-control">
+                        <input type="text" name="name-contact" placeholder="Nombre" id="txtName" class="name-contact">
+                        <i class='icon-success bx bxs-check-circle'></i>
+                        <i class='icon-error bx bxs-error-circle'></i>
+                        <small>Error message</small>
+                    </div>
+
+                    <div class="form-control">
+                        <input type="email" name="email-contact" placeholder="Correo" id="txtEmail"
+                            class="email-contact">
+                        <i class='icon-success bx bxs-check-circle'></i>
+                        <i class='icon-error bx bxs-error-circle'></i>
+                        <small id="message-error">Error message</small>
+                    </div>
+
+                    <div class="form-control">
+                        <input type="text" name="subject" placeholder="Asunto" id="subject" class="subject">
+                        <i class='icon-success bx bxs-check-circle'></i>
+                        <i class='icon-error bx bxs-error-circle'></i>
+                        <small id="message-error">Error message</small>
+                    </div>
+
+                    <div class="form-control">
+                        <textarea name="message" class="message" placeholder="Mensaje" id="message"></textarea>
+                        <i class='icon-success bx bxs-check-circle'></i>
+                        <i class='icon-error bx bxs-error-circle'></i>
+                        <small id="message-error">Error message</small>
+                    </div>
+
                     <div class="derecha">
                         <input type="submit" value="Contactar" class="send-button" id="send-button">
                     </div>
                 </form>
             </div>
-        </section>
+
     </footer>
 
     <script src="js/main.js"></script>
