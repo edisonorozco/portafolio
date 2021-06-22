@@ -200,6 +200,7 @@ main .portafolio .container-portafolio .item img:hover {
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  z-index: 1;
 }
 
 .overlay.active {
@@ -234,6 +235,47 @@ main .portafolio .container-portafolio .item img:hover {
   position: absolute;
   right: -20px;
   top: -20px;
+}
+
+/***************SENDING EMAIL******************/
+
+.sending-email-animation {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.9);
+  width: 100%;
+  height: 100vh;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  z-index: 1;
+}
+
+.sending-email-animation .active {
+  display: flex;
+}
+
+.sending-email-animation .sending-animation {
+  max-width: 100%;
+  border-radius: 10px;
+}
+
+.sending-email-animation .description {
+  display: block;
+  background: #fff;
+  padding: 20px;
+  text-align: center;
+  margin-top: 5px;
+  border-radius: 10px;
+  max-width: 50%;
+}
+
+.container-sending-email {
+  position: relative;
 }
 
 /***************FOOTER******************/
@@ -285,6 +327,10 @@ footer .form .form-control textarea {
   width: 100%;
   padding: 10px;
   background: none;
+  outline: none;
+  color: #f0f0f0;
+  font-weight: 500;
+  margin: auto;
 }
 
 footer .form .form-control i {
@@ -339,7 +385,7 @@ footer .form .message {
 
 footer .form .derecha {
   display: flex;
-  justify-content: flex-end;
+  justify-content: center;
 }
 
 footer .form .send-button {
@@ -349,6 +395,7 @@ footer .form .send-button {
   border: 1px solid #15a4fa;
   color: #fff;
   border-radius: 3px;
+  width: 30%;
 }
 
 footer .form .send-button:hover {
@@ -376,6 +423,7 @@ footer .form .send-button:hover {
     width: 90%;
     margin: 5px auto;
   }
+
 }
 
 @media screen and (max-width: 540px) {
@@ -412,4 +460,5 @@ footer .form .send-button:hover {
     position: relative;
     width: 90%;
   }
+
 }

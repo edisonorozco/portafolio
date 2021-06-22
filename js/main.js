@@ -2,6 +2,10 @@ const btnSendEmail = document.querySelector("#send-button");
 const formContact = document.querySelector("#form-contact-now");
 const urlEmail =
   "https://back-portafolio-web.herokuapp.com/api/email/contact-me-now";
+const txtNameClient = document.getElementById("txtName");
+const txtEmailClient = document.getElementById("txtEmail");
+const txtSubject = document.getElementById("subject");
+const txtMessage = document.getElementById("message");
 
 window.addEventListener("load", () => {
   const overlay = document.getElementById("overlay");
@@ -33,7 +37,10 @@ btnSendEmail.addEventListener("click", (event) => btnSendEmailClick(event));
 function btnSendEmailClick(event) {
   event.preventDefault();
   let emailDto = getEmailDTOFromFrom();
-  sendEmail(emailDto);
+
+  if(emailDto != null) 
+    sendEmail(emailDto);
+
 }
 
 function sendEmail(emailDto) {
@@ -53,16 +60,18 @@ function sendEmail(emailDto) {
 }
 
 function getEmailDTOFromFrom() {
-  const nameClient = document.getElementById("txtName").value.trim();
-  const emailClient = document.getElementById("txtEmail").value.trim();
-  const subject = document.getElementById("subject").value.trim();
-  const message = document.getElementById("message").value.trim();
+  
+  const nameClient = txtNameClient.value.trim();
+  const emailClient = txtEmailClient.value.trim();
+  const subject = txtSubject.value.trim();
+  const message = txtMessage.value.trim();
 
   if (nameClient === "") {
     setErrorFrom(
       document.getElementById("txtName"),
       "Por favor ingrese un nombre !"
     );
+    return null;
   } else {
     setSuccessFrom(document.getElementById("txtName"));
   }
@@ -72,11 +81,13 @@ function getEmailDTOFromFrom() {
       document.getElementById("txtEmail"),
       "Por favor ingrese un email !"
     );
+    return null;
   } else if (!isEmil(emailClient)) {
     setErrorFrom(
       document.getElementById("txtEmail"),
       "Por favor ingrese un email valido!"
     );
+    return null;
   } else {
     setSuccessFrom(document.getElementById("txtEmail"));
   }
@@ -86,6 +97,7 @@ function getEmailDTOFromFrom() {
       document.getElementById("subject"),
       "Por favor ingrese un asunto !"
     );
+    return null;
   } else {
     setSuccessFrom(document.getElementById("subject"));
   }
@@ -95,6 +107,7 @@ function getEmailDTOFromFrom() {
       document.getElementById("message"),
       "Por favor ingrese un mensaje !"
     );
+    return null;
   } else {
     setSuccessFrom(document.getElementById("message"));
   }
@@ -118,4 +131,74 @@ function isEmil(email) {
   return /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(
     email
   );
+}
+
+txtNameClient.addEventListener("keyup", pressHandlerName);
+txtEmailClient.addEventListener("keyup", pressHandlerEmail);
+txtSubject.addEventListener("keyup", pressHandlerSubject);
+txtMessage.addEventListener("keyup", pressHandlerMessage);
+
+function pressHandlerName() {
+
+  const nameClient = txtNameClient.value.trim();
+
+  if (nameClient === "") {
+    setErrorFrom(
+      document.getElementById("txtName"),
+      "Por favor ingrese un nombre !"
+    );
+  } else {
+    setSuccessFrom(document.getElementById("txtName"));
+  }
+}
+
+function pressHandlerEmail() {
+
+  const emailClient = txtEmailClient.value.trim();
+
+  if (emailClient === "") {
+    setErrorFrom(
+      document.getElementById("txtEmail"),
+      "Por favor ingrese un email !"
+    );
+    return null;
+  } else if (!isEmil(emailClient)) {
+    setErrorFrom(
+      document.getElementById("txtEmail"),
+      "Por favor ingrese un email valido!"
+    );
+    return null;
+  } else {
+    setSuccessFrom(document.getElementById("txtEmail"));
+  }
+}
+
+function pressHandlerSubject() {
+
+  const subject = txtSubject.value.trim();
+
+  if (subject === "") {
+    setErrorFrom(
+      document.getElementById("subject"),
+      "Por favor ingrese un asunto !"
+    );
+    return null;
+  } else {
+    setSuccessFrom(document.getElementById("subject"));
+  }
+}
+
+function pressHandlerMessage() {
+
+  const message = txtMessage.value.trim();
+
+  if (message === "") {
+    setErrorFrom(
+      document.getElementById("message"),
+      "Por favor ingrese un mensaje !"
+    );
+    return null;
+  } else {
+    setSuccessFrom(document.getElementById("message"));
+  }
 }
