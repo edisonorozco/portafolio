@@ -212,14 +212,24 @@ main .portafolio .container-portafolio .item img:hover {
   border-radius: 10px;
 }
 
-.overlay .description {
-  display: block;
-  background: #fff;
-  padding: 20px;
-  text-align: center;
-  margin-top: 5px;
+.overlay .laguajes,
+.overlay .git,
+.overlay .desing {
+  display: none;
+}
+
+.overlay .laguajes.active-item,
+.overlay .git.active-item,
+.overlay .desing.active-item {
+  display: flex;
+  width: 500px;
+  background-color: #e74c3c;
   border-radius: 10px;
-  max-width: 50%;
+  justify-content: center;
+  color: #f0f0f0;
+  padding: 10px;
+  font-weight: 500;
+  flex-direction: column;
 }
 
 .container-services {
@@ -233,8 +243,8 @@ main .portafolio .container-portafolio .item img:hover {
   border: none;
   cursor: pointer;
   position: absolute;
-  right: -20px;
-  top: -20px;
+  right: -25px;
+  top: 0px;
 }
 
 /***************SENDING EMAIL******************/
@@ -252,7 +262,6 @@ main .portafolio .container-portafolio .item img:hover {
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  z-index: 1;
 }
 
 .sending-email-animation .active {
@@ -262,6 +271,8 @@ main .portafolio .container-portafolio .item img:hover {
 .sending-email-animation .sending-animation {
   max-width: 100%;
   border-radius: 10px;
+  width: 120px;
+  height: 120px;
 }
 
 .sending-email-animation .description {
@@ -276,6 +287,14 @@ main .portafolio .container-portafolio .item img:hover {
 
 .container-sending-email {
   position: relative;
+}
+
+.sending-email-animation .sending-animation span {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
 }
 
 /***************FOOTER******************/
@@ -423,7 +442,6 @@ footer .form .send-button:hover {
     width: 90%;
     margin: 5px auto;
   }
-
 }
 
 @media screen and (max-width: 540px) {
@@ -458,7 +476,16 @@ footer .form .send-button:hover {
   }
   .container-services {
     position: relative;
-    width: 90%;
+    width: 85%;
   }
 
+  .overlay .laguajes.active-item,
+  .overlay .git.active-item,
+  .overlay .desing.active-item {
+    width: 85%;
+  }
+
+  footer .form .send-button {
+    width: 100%;
+  }
 }

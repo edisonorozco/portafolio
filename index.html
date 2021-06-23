@@ -80,20 +80,16 @@
 
                     <div class="container-portafolio">
 
-                        <div class="item" data-category="fast-desing" data-tags="dsing, fast, beutifull"
-                            data-description="Conocimiento avanzado en el leguaje de programacion java, con el cual 
-                            he desarrollado aplicaciones robustas para diferentes empreseas y para el desarrollo de paginas 
-                            utilizao html, css y javascript en el frontend">
-                            <img src="img/languajes.png" alt="">
+                        <div class="item" data-category="languajes">
+                            <img src="img/Lenguajes.png" alt="">
                         </div>
 
-                        <div class="item" data-description="Utilizo github para el versionamiento y manejo del codigo
-                        fuente de mis aplicaciones">
-                            <img src="img/github.png" alt="">
+                        <div class="item" data-category="git">
+                            <img src="img/git.png" alt="">
                         </div>
 
-                        <div class="item">
-                            <img src="img/3.jpg" alt="">
+                        <div class="item" data-category="desing">
+                            <img src="img/disenos.png" alt="">
                         </div>
 
                     </div>
@@ -104,66 +100,108 @@
     </main>
 
     <section class="overlay" id="overlay">
+
         <div class="container-services">
             <button id="btn-close-image" class="icon">
                 <i class='bx bxs-x-circle'></i></button>
             <img src="" alt="">
         </div>
-        <div class="description"></div>
+
+        <div class="laguajes" id="laguajes">
+            <p>Conocimiento avanzado en leguaje Java, tambien he desarrollado programas mediamente avanzados con spring boot, 
+                un ejemplo de esto es un aplicativo que permite enviar un correo electronico y el cual he utilizado en mi web
+                para el formulario de contatco. Tambien utilizo html, css y javascript, y muestra de esto es esta web que desarrolle
+                con estas herramientas tecnologicas
+            </p>
+        </div>
+        <div class="git" id="git">
+            <p>Manejo de git como repositorio de codigo fuente, control de versiones y despliegue de aplicativos, he utilizado
+                git por varios años ya, tanto en las empresas donde me he desempeñado como desarrollador, como para proyectos personales,
+                actualmete tengo deplegada una pequeña app desarrollada con spring en heroku y esta web que esta desplegada en github pages.
+            </p>
+        </div>
+        <div class="desing" id="desing">
+            <p>Realizado diseños para aplicaciones de escritorios, busco siempre que mis diseños sean simples pero modernos y ademas que brinden
+                una buena experiencia de usuario al ser utilizado.
+            </p>
+        </div>
+
     </section>
 
-    <section class="sending-email-animation" id="sending-email-animation">
+    <section class="sending-email-animation active" id="sending-email-animation">
         <div class="container-sending-email">
-            <div class="sending-animation"></div>
+            <div class="sending-animation">
+
+                <span style="--i:1;"></span>
+                <span style="--i:2;"></span>
+                <span style="--i:3;"></span>
+                <span style="--i:4;"></span>
+                <span style="--i:5;"></span>
+                <span style="--i:6;"></span>
+                <span style="--i:7;"></span>
+                <span style="--i:8;"></span>
+                <span style="--i:9;"></span>
+                <span style="--i:10;"></span>
+                <span style="--i:11;"></span>
+                <span style="--i:12;"></span>
+                <span style="--i:13;"></span>
+                <span style="--i:14;"></span>
+                <span style="--i:15;"></span>
+                <span style="--i:16;"></span>
+                <span style="--i:17;"></span>
+                <span style="--i:18;"></span>
+                <span style="--i:19;"></span>
+                <span style="--i:20;"></span>
+
+            </div>
         </div>
         <div class="description"></div>
     </section>
 
     <footer>
 
-            <div class="footer-container" id="contact-now">
+        <div class="footer-container" id="contact-now">
 
-                <div class="footer-texts">
-                    <h2 class="title-footer">Contacto</h2>
-                    <p class="title-parragraf">Envie su mensaje</p>
+            <div class="footer-texts">
+                <h2 class="title-footer">Contacto</h2>
+                <p class="title-parragraf">Envie su mensaje</p>
+            </div>
+
+            <form action="" class="form" method="POST" id="form-contact-now">
+
+                <div class="form-control">
+                    <input type="text" name="name-contact" placeholder="Nombre" id="txtName" class="name-contact">
+                    <i class='icon-success bx bxs-check-circle'></i>
+                    <i class='icon-error bx bxs-error-circle'></i>
+                    <small>Error message</small>
                 </div>
 
-                <form action="" class="form" method="POST" id="form-contact-now">
+                <div class="form-control">
+                    <input type="email" name="email-contact" placeholder="Correo" id="txtEmail" class="email-contact">
+                    <i class='icon-success bx bxs-check-circle'></i>
+                    <i class='icon-error bx bxs-error-circle'></i>
+                    <small id="message-error">Error message</small>
+                </div>
 
-                    <div class="form-control">
-                        <input type="text" name="name-contact" placeholder="Nombre" id="txtName" class="name-contact">
-                        <i class='icon-success bx bxs-check-circle'></i>
-                        <i class='icon-error bx bxs-error-circle'></i>
-                        <small>Error message</small>
-                    </div>
+                <div class="form-control">
+                    <input type="text" name="subject" placeholder="Asunto" id="subject" class="subject">
+                    <i class='icon-success bx bxs-check-circle'></i>
+                    <i class='icon-error bx bxs-error-circle'></i>
+                    <small id="message-error">Error message</small>
+                </div>
 
-                    <div class="form-control">
-                        <input type="email" name="email-contact" placeholder="Correo" id="txtEmail"
-                            class="email-contact">
-                        <i class='icon-success bx bxs-check-circle'></i>
-                        <i class='icon-error bx bxs-error-circle'></i>
-                        <small id="message-error">Error message</small>
-                    </div>
+                <div class="form-control">
+                    <textarea name="message" class="message" placeholder="Mensaje" id="message"></textarea>
+                    <i class='icon-success bx bxs-check-circle'></i>
+                    <i class='icon-error bx bxs-error-circle'></i>
+                    <small id="message-error">Error message</small>
+                </div>
 
-                    <div class="form-control">
-                        <input type="text" name="subject" placeholder="Asunto" id="subject" class="subject">
-                        <i class='icon-success bx bxs-check-circle'></i>
-                        <i class='icon-error bx bxs-error-circle'></i>
-                        <small id="message-error">Error message</small>
-                    </div>
-
-                    <div class="form-control">
-                        <textarea name="message" class="message" placeholder="Mensaje" id="message"></textarea>
-                        <i class='icon-success bx bxs-check-circle'></i>
-                        <i class='icon-error bx bxs-error-circle'></i>
-                        <small id="message-error">Error message</small>
-                    </div>
-
-                    <div class="derecha">
-                        <input type="submit" value="Contactar" class="send-button" id="send-button">
-                    </div>
-                </form>
-            </div>
+                <div class="derecha">
+                    <input type="submit" value="Contactar" class="send-button" id="send-button">
+                </div>
+            </form>
+        </div>
 
     </footer>
 

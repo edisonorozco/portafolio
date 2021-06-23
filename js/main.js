@@ -9,6 +9,9 @@ const txtMessage = document.getElementById("message");
 
 window.addEventListener("load", () => {
   const overlay = document.getElementById("overlay");
+  const laguajesDiv = document.getElementById("laguajes");
+  const gitDiv = document.getElementById("git");
+  const desingDiv = document.getElementById("desing");
   document
     .querySelectorAll(
       ".main .portafolio .container .container-text-portafolio .container-portafolio .item img"
@@ -16,10 +19,25 @@ window.addEventListener("load", () => {
     .forEach((element) => {
       element.addEventListener("click", () => {
         const path = element.getAttribute("src");
-        const description = element.parentNode.dataset.description;
+        const category = element.parentNode.dataset.category;
         overlay.classList.add("active");
         document.querySelector("#overlay img").src = path;
-        document.querySelector("#overlay .description").innerHTML = description;
+
+        gitDiv.classList.remove("active-item");
+        desingDiv.classList.remove("active-item");
+        laguajesDiv.classList.remove("active-item");
+
+        if (category == "languajes") {
+          laguajesDiv.classList.add("active-item");
+        }
+
+        if (category == "git") {
+          gitDiv.classList.add("active-item");
+        }
+
+        if (category == "desing") {
+          desingDiv.classList.add("active-item");
+        }
       });
     });
 
@@ -38,9 +56,7 @@ function btnSendEmailClick(event) {
   event.preventDefault();
   let emailDto = getEmailDTOFromFrom();
 
-  if(emailDto != null) 
-    sendEmail(emailDto);
-
+  if (emailDto != null) sendEmail(emailDto);
 }
 
 function sendEmail(emailDto) {
@@ -60,7 +76,6 @@ function sendEmail(emailDto) {
 }
 
 function getEmailDTOFromFrom() {
-  
   const nameClient = txtNameClient.value.trim();
   const emailClient = txtEmailClient.value.trim();
   const subject = txtSubject.value.trim();
@@ -139,7 +154,6 @@ txtSubject.addEventListener("keyup", pressHandlerSubject);
 txtMessage.addEventListener("keyup", pressHandlerMessage);
 
 function pressHandlerName() {
-
   const nameClient = txtNameClient.value.trim();
 
   if (nameClient === "") {
@@ -153,7 +167,6 @@ function pressHandlerName() {
 }
 
 function pressHandlerEmail() {
-
   const emailClient = txtEmailClient.value.trim();
 
   if (emailClient === "") {
@@ -161,20 +174,17 @@ function pressHandlerEmail() {
       document.getElementById("txtEmail"),
       "Por favor ingrese un email !"
     );
-    return null;
   } else if (!isEmil(emailClient)) {
     setErrorFrom(
       document.getElementById("txtEmail"),
       "Por favor ingrese un email valido!"
     );
-    return null;
   } else {
     setSuccessFrom(document.getElementById("txtEmail"));
   }
 }
 
 function pressHandlerSubject() {
-
   const subject = txtSubject.value.trim();
 
   if (subject === "") {
@@ -182,14 +192,12 @@ function pressHandlerSubject() {
       document.getElementById("subject"),
       "Por favor ingrese un asunto !"
     );
-    return null;
   } else {
     setSuccessFrom(document.getElementById("subject"));
   }
 }
 
 function pressHandlerMessage() {
-
   const message = txtMessage.value.trim();
 
   if (message === "") {
@@ -197,7 +205,6 @@ function pressHandlerMessage() {
       document.getElementById("message"),
       "Por favor ingrese un mensaje !"
     );
-    return null;
   } else {
     setSuccessFrom(document.getElementById("message"));
   }
