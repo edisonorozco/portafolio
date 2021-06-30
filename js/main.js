@@ -2,6 +2,7 @@ const btnSendEmail = document.querySelector("#send-button");
 const formContact = document.querySelector("#form-contact-now");
 const urlEmail =
   "https://back-portafolio-web.herokuapp.com/api/email/contact-me-now";
+const urlComments = "http://localhost:9999/api/comments/list";
 const txtNameClient = document.getElementById("txtName");
 const txtEmailClient = document.getElementById("txtEmail");
 const txtSubject = document.getElementById("subject");
@@ -9,14 +10,26 @@ const txtMessage = document.getElementById("message");
 const divDendingEmailAnimation = document.getElementById(
   "sending-email-animation"
 );
+const gitDiv = document.getElementById("git");
+const overlay = document.getElementById("overlay");
+const desingDiv = document.getElementById("desing");
+const laguajesDiv = document.getElementById("laguajes");
 const btnClose = document.getElementById("close-button");
 const divMessageSendSuccess = document.getElementById("message-send-success");
+const btnCloseImage = document.querySelector("#btn-close-image");
 
-window.addEventListener("load", () => {
-  const overlay = document.getElementById("overlay");
-  const laguajesDiv = document.getElementById("laguajes");
-  const gitDiv = document.getElementById("git");
-  const desingDiv = document.getElementById("desing");
+//Events
+window.addEventListener("load", () => initLoadWindow());
+overlay.addEventListener("click", (event) => overlayClick(event));
+btnCloseImage.addEventListener("click", () => btnCloseImageClick());
+btnClose.addEventListener("click", () => closeWindowConfirmSendEmail());
+btnSendEmail.addEventListener("click", (event) => btnSendEmailClick(event));
+txtSubject.addEventListener("keyup", (event) => pressHandlerInputs(event));
+txtMessage.addEventListener("keyup", (event) => pressHandlerInputs(event));
+txtNameClient.addEventListener("keyup", (event) => pressHandlerInputs(event));
+txtEmailClient.addEventListener("keyup", (event) => pressHandlerInputs(event));
+
+function initLoadWindow() {
   document
     .querySelectorAll(
       ".main .portafolio .container .container-text-portafolio .container-portafolio .item img"
@@ -45,25 +58,25 @@ window.addEventListener("load", () => {
         }
       });
     });
+}
 
-  document.querySelector("#btn-close-image").addEventListener("click", () => {
-    overlay.classList.remove("active");
-  });
+function btnCloseImageClick() {
+  overlay.classList.remove("active");
+}
 
-  overlay.addEventListener("click", (event) => {
-    event.target.id === "overlay" ? overlay.classList.remove("active") : "";
-  });
-});
-
-btnSendEmail.addEventListener("click", (event) => btnSendEmailClick(event));
+function overlayClick(event) {
+  event.target.id === "overlay" ? overlay.classList.remove("active") : "";
+}
 
 function btnSendEmailClick(event) {
   event.preventDefault();
+  //getAllComments();
   let emailDto = getEmailDTOFromFrom();
 
-  showLoading();
-
-  if (emailDto != null) sendEmail(emailDto);
+  if (emailDto != null) {
+    showLoading();
+    sendEmail(emailDto);
+  }
 }
 
 function sendEmail(emailDto) {
@@ -160,65 +173,81 @@ function isEmil(email) {
   );
 }
 
-txtNameClient.addEventListener("keyup", pressHandlerName);
-txtEmailClient.addEventListener("keyup", pressHandlerEmail);
-txtSubject.addEventListener("keyup", pressHandlerSubject);
-txtMessage.addEventListener("keyup", pressHandlerMessage);
+function getAllComments() {
+  const settings = {
+    method: "GET",
+    timeout: 6000,
+    headers: {
+      "Content-Type": "application/json",
+    },
+  };
 
-function pressHandlerName() {
-  const nameClient = txtNameClient.value.trim();
-
-  if (nameClient === "") {
-    setErrorFrom(
-      document.getElementById("txtName"),
-      "Por favor ingrese un nombre !"
-    );
-  } else {
-    setSuccessFrom(document.getElementById("txtName"));
-  }
+  fetch(urlComments, settings)
+    .then((response) => response.json())
+    .then((json) => console.log(json))
+    .catch((error) => console.log(error));
 }
 
-function pressHandlerEmail() {
-  const emailClient = txtEmailClient.value.trim();
+function pressHandlerInputs(event) {
+  //Name
+  if (event.target.id == txtNameClient.id) {
+    const nameClient = txtNameClient.value.trim();
 
-  if (emailClient === "") {
-    setErrorFrom(
-      document.getElementById("txtEmail"),
-      "Por favor ingrese un email !"
-    );
-  } else if (!isEmil(emailClient)) {
-    setErrorFrom(
-      document.getElementById("txtEmail"),
-      "Por favor ingrese un email valido!"
-    );
-  } else {
-    setSuccessFrom(document.getElementById("txtEmail"));
+    if (nameClient === "") {
+      setErrorFrom(
+        document.getElementById("txtName"),
+        "Por favor ingrese un nombre !"
+      );
+    } else {
+      setSuccessFrom(document.getElementById("txtName"));
+    }
   }
-}
 
-function pressHandlerSubject() {
-  const subject = txtSubject.value.trim();
+  //Email
+  if (event.target.id == txtEmailClient.id) {
+    const emailClient = txtEmailClient.value.trim();
 
-  if (subject === "") {
-    setErrorFrom(
-      document.getElementById("subject"),
-      "Por favor ingrese un asunto !"
-    );
-  } else {
-    setSuccessFrom(document.getElementById("subject"));
+    if (emailClient === "") {
+      setErrorFrom(
+        document.getElementById("txtEmail"),
+        "Por favor ingrese un email !"
+      );
+    } else if (!isEmil(emailClient)) {
+      setErrorFrom(
+        document.getElementById("txtEmail"),
+        "Por favor ingrese un email valido!"
+      );
+    } else {
+      setSuccessFrom(document.getElementById("txtEmail"));
+    }
   }
-}
 
-function pressHandlerMessage() {
-  const message = txtMessage.value.trim();
+  //Subject
+  if (event.target.id == txtSubject.id) {
+    const subject = txtSubject.value.trim();
 
-  if (message === "") {
-    setErrorFrom(
-      document.getElementById("message"),
-      "Por favor ingrese un mensaje !"
-    );
-  } else {
-    setSuccessFrom(document.getElementById("message"));
+    if (subject === "") {
+      setErrorFrom(
+        document.getElementById("subject"),
+        "Por favor ingrese un asunto !"
+      );
+    } else {
+      setSuccessFrom(document.getElementById("subject"));
+    }
+  }
+
+  //Message
+  if (event.target.id == txtMessage.id) {
+    const message = txtMessage.value.trim();
+
+    if (message === "") {
+      setErrorFrom(
+        document.getElementById("message"),
+        "Por favor ingrese un mensaje !"
+      );
+    } else {
+      setSuccessFrom(document.getElementById("message"));
+    }
   }
 }
 
@@ -229,12 +258,17 @@ function showLoading() {
 function hideLoading() {
   divDendingEmailAnimation.classList.remove("sending-email-animation--active");
   divMessageSendSuccess.classList.add("message-send-success--active");
-  this.txtEmailClient.value = "";
-  this.txtNameClient.value = "";
-  this.txtMessage.value = "";
-  this.txtSubject.value = "";
+  txtEmailClient.value = "";
+  txtNameClient.value = "";
+  txtMessage.value = "";
+  txtSubject.value = "";
+
+  txtEmailClient.parentNode.className = "form-control";
+  txtNameClient.parentNode.className = "form-control";
+  txtMessage.parentNode.className = "form-control";
+  txtSubject.parentNode.className = "form-control";
 }
 
-btnClose.addEventListener("click", () => {
+function closeWindowConfirmSendEmail() {
   divMessageSendSuccess.classList.remove("message-send-success--active");
-})
+}
