@@ -3,6 +3,11 @@ const formContact = document.querySelector("#form-contact-now");
 const urlEmail =
   "https://back-portafolio-web.herokuapp.com/api/email/contact-me-now";
 const urlComments = "http://localhost:9999/api/comments/list";
+const headerRequest = () => {
+  return {
+    "Content-Type": "application/json",
+  };
+};
 const txtNameClient = document.getElementById("txtName");
 const txtEmailClient = document.getElementById("txtEmail");
 const txtSubject = document.getElementById("subject");
@@ -70,7 +75,6 @@ function overlayClick(event) {
 
 function btnSendEmailClick(event) {
   event.preventDefault();
-  //getAllComments();
   let emailDto = getEmailDTOFromFrom();
 
   if (emailDto != null) {
@@ -79,25 +83,25 @@ function btnSendEmailClick(event) {
   }
 }
 
-function sendEmail(emailDto) {
-  const settings = {
-    method: "POST",
-    timeout: 6000,
-    body: JSON.stringify(emailDto),
-    headers: {
-      "Content-Type": "application/json",
-    },
-  };
+async function sendEmail(emailDto) {
+  const authRequest = new RequestAPI(
+    "https://back-portafolio-web.herokuapp.com/api",
+    { headers: headerRequest },
+    intercept
+  );
 
-  fetch(urlEmail, settings)
-    .then((response) => response.json())
-    .then(() => {
-      hideLoading();
-    })
-    .catch((err) => {
-      hideLoading();
-      console.log(err);
-    });
+  const [error, response] = await authRequest.post(
+    "/email/contact-me-now",
+    emailDto
+  );
+
+  if (error) {
+    hideLoading();
+    console.log("Error list comments");
+  } else if (response) {
+    hideLoading();
+    console.log(response);
+  }
 }
 
 function getEmailDTOFromFrom() {
@@ -152,7 +156,7 @@ function getEmailDTOFromFrom() {
     setSuccessFrom(document.getElementById("message"));
   }
 
-  return new EmailDTO(nameClient, emailClient, subject, message);
+  return new EmailModel(nameClient, emailClient, subject, message);
 }
 
 function setErrorFrom(input, message) {
@@ -173,19 +177,17 @@ function isEmil(email) {
   );
 }
 
-function getAllComments() {
-  const settings = {
-    method: "GET",
-    timeout: 6000,
-    headers: {
-      "Content-Type": "application/json",
-    },
-  };
+async function getAllComments() {
+  const authRequest = new RequestAPI(
+    "http://localhost:9999/api",
+    { headers: headerRequest },
+    intercept
+  );
 
-  fetch(urlComments, settings)
-    .then((response) => response.json())
-    .then((json) => console.log(json))
-    .catch((error) => console.log(error));
+  const [error, response] = await authRequest.get("/comments/list");
+
+  if (error) console.log("Error list comments");
+  else console.log(response);
 }
 
 function pressHandlerInputs(event) {
@@ -272,3 +274,24 @@ function hideLoading() {
 function closeWindowConfirmSendEmail() {
   divMessageSendSuccess.classList.remove("message-send-success--active");
 }
+
+const intercept = async (request) => {
+  const { status } = request;
+
+  switch (true) {
+    case status === 419:
+      throw new Error((await request.json()).message);
+    case status === 400:
+      throw new Error((await request.json()).message);
+    case status === 401:
+      throw new Error((await request.json()).message);
+    case status === 404:
+      throw new Error((await request.json()).message || "Not foud");
+    case status === 500:
+      throw new Error("Somenthing went wrong");
+    case status === 204:
+      return { status: "OK" };
+    default:
+      return request.json();
+  }
+};
