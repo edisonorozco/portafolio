@@ -6,6 +6,11 @@ const txtNameClient = document.getElementById("txtName");
 const txtEmailClient = document.getElementById("txtEmail");
 const txtSubject = document.getElementById("subject");
 const txtMessage = document.getElementById("message");
+const divDendingEmailAnimation = document.getElementById(
+  "sending-email-animation"
+);
+const btnClose = document.getElementById("close-button");
+const divMessageSendSuccess = document.getElementById("message-send-success");
 
 window.addEventListener("load", () => {
   const overlay = document.getElementById("overlay");
@@ -56,6 +61,8 @@ function btnSendEmailClick(event) {
   event.preventDefault();
   let emailDto = getEmailDTOFromFrom();
 
+  showLoading();
+
   if (emailDto != null) sendEmail(emailDto);
 }
 
@@ -71,8 +78,13 @@ function sendEmail(emailDto) {
 
   fetch(urlEmail, settings)
     .then((response) => response.json())
-    .then(() => alert("Email enviado con exito"))
-    .catch((err) => console.log(err));
+    .then(() => {
+      hideLoading();
+    })
+    .catch((err) => {
+      hideLoading();
+      console.log(err);
+    });
 }
 
 function getEmailDTOFromFrom() {
@@ -209,3 +221,20 @@ function pressHandlerMessage() {
     setSuccessFrom(document.getElementById("message"));
   }
 }
+
+function showLoading() {
+  divDendingEmailAnimation.classList.add("sending-email-animation--active");
+}
+
+function hideLoading() {
+  divDendingEmailAnimation.classList.remove("sending-email-animation--active");
+  divMessageSendSuccess.classList.add("message-send-success--active");
+  this.txtEmailClient.value = "";
+  this.txtNameClient.value = "";
+  this.txtMessage.value = "";
+  this.txtSubject.value = "";
+}
+
+btnClose.addEventListener("click", () => {
+  divMessageSendSuccess.classList.remove("message-send-success--active");
+})

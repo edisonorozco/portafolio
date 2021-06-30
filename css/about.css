@@ -260,7 +260,7 @@ main {
 }
 
 .row section .bottom {
-  display: flex;
+  display: none;
   align-items: center;
   justify-content: flex-end;
 }
