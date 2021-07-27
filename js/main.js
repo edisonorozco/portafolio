@@ -24,7 +24,7 @@ const divMessageSendSuccess = document.getElementById("message-send-success");
 const btnCloseImage = document.querySelector("#btn-close-image");
 
 //Events
-window.addEventListener("load", () => initLoadWindow());
+window.addEventListener("load", () => loadWindow());
 overlay.addEventListener("click", (event) => overlayClick(event));
 btnCloseImage.addEventListener("click", () => btnCloseImageClick());
 btnClose.addEventListener("click", () => closeWindowConfirmSendEmail());
@@ -34,7 +34,7 @@ txtMessage.addEventListener("keyup", (event) => pressHandlerInputs(event));
 txtNameClient.addEventListener("keyup", (event) => pressHandlerInputs(event));
 txtEmailClient.addEventListener("keyup", (event) => pressHandlerInputs(event));
 
-function initLoadWindow() {
+function loadWindow() {
   document
     .querySelectorAll(
       ".main .portafolio .container .container-text-portafolio .container-portafolio .item img"
