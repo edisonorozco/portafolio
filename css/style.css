@@ -216,6 +216,10 @@ img {
     transition: 0.3s;
     z-index: var(--z-fixed);
   }
+
+  .project__container {
+    padding-bottom: 50px;
+  }
 }
 
 .nav__list {
@@ -545,7 +549,7 @@ img {
 }
 
 .skills__pothoshop {
-    width: 50%;
+  width: 50%;
 }
 
 .skills__close .skills__list {
@@ -1070,6 +1074,10 @@ img {
   .testimonial__description {
     text-align: center;
   }
+
+  .project__container {
+    padding-bottom: 50px;
+  }
 }
 
 @media screen and (min-width: 568px) {
@@ -1099,6 +1107,10 @@ img {
     display: grid;
     grid-template-columns: 0.6fr;
     justify-content: center;
+  }
+
+  .project__container {
+    padding-bottom: 50px;
   }
 }
 
@@ -1247,6 +1259,7 @@ img {
     padding: 3rem 2.5rem 0;
     grid-template-columns: 1fr max-content;
     column-gap: 3rem;
+    padding-bottom: 50px;
   }
 
   .project__data {
@@ -1272,6 +1285,10 @@ img {
 
   .footer__copy {
     margin-top: 4.5rem;
+  }
+
+  .project__container {
+    padding-bottom: 50px;
   }
 }
 
@@ -1310,15 +1327,19 @@ img {
     right: -3.5rem;
   }
 
-  .swiper-container-horizontal > .swiper-pagination-bullets{
+  .swiper-container-horizontal > .swiper-pagination-bullets {
     bottom: -4.5rem;
   }
 
-  .contact__form{
+  .contact__form {
     width: 460px;
   }
 
   .contact__inputs {
     grid-template-columns: repeat(2, 1fr);
+  }
+
+  .project__container {
+    padding-bottom: 50px;
   }
 }
