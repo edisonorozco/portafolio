@@ -6,6 +6,8 @@ const txtNameClient = document.getElementById("txtName");
 const txtEmailClient = document.getElementById("txtEmail");
 const txtSubject = document.getElementById("txtSubject");
 const txtMessage = document.getElementById("txtMessage");
+const divLoaging = document.getElementById("loading");
+const divCheck = document.getElementById("check");
 
 const headerRequest = () => {
   return {
@@ -234,7 +236,7 @@ const btnSendEmailOnclick = (event) => {
   let emailDto = getEmailDTOFromFrom();
 
   if (emailDto != null) {
-    //showLoading();
+    showLoading();
     sendEmail(emailDto);
   }
 };
@@ -252,10 +254,10 @@ async function sendEmail(emailDto) {
   );
 
   if (error) {
-    // hideLoading();
+    hideLoading();
     console.log("Error list comments");
   } else if (response) {
-    //hideLoading();
+    hideLoading();
     console.log(response);
   }
 }
@@ -305,3 +307,17 @@ const intercept = async (request) => {
       return request.json();
   }
 };
+
+const showLoading = () => {
+  divLoaging.classList.add("loading__active");
+  divCheck.classList.remove("check__active");
+};
+
+const hideLoading = () => {
+  divLoaging.classList.remove("loading__active");
+  divCheck.classList.add("check__active");
+  txtEmailClient.value = "";
+  txtNameClient.value = "";
+  txtMessage.value = "";
+  txtSubject.value = "";
+}

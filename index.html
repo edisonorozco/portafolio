@@ -860,11 +860,18 @@
                         <textarea name="" id="txtMessage" cols="0" rows="7" class="contact__input"></textarea>
                     </div>
 
-                    <div>
+                    <div class="sendemail_container">
                         <a href="#" id="btnSend" class="button button--flex" onclick="btnSendEmailOnclick(event)">
                             Enviar
                             <i class='bx bx-send button__icon'></i>
                         </a>
+                        <div class="loading" id="loading">
+                            <img src="/img/loading-25.gif" alt="">
+                        </div>
+
+                        <div class="check" id="check">
+                            <img src="/img/check.png" alt="">
+                        </div>
                     </div>
 
                 </form>

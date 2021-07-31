@@ -915,6 +915,31 @@ img {
   padding: 0.25rem 0.5rem 0.5rem 0;
 }
 
+.sendemail_container {
+  display: flex;
+  align-items: center;
+}
+
+.loading {
+  display: none;
+  margin-left: 10px;
+  width: 40px;
+}
+
+.loading__active {
+  display: flex;
+}
+
+.check {
+  display: none;
+  margin-left: 10px;
+  width: 40px;
+}
+
+.check__active {
+  display: flex;
+}
+
 /*==================== FOOTER ====================*/
 .footer {
   padding-top: 2rem;
