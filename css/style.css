@@ -415,6 +415,7 @@ img {
   border-radius: 0.5rem;
   justify-self: center;
   align-self: center;
+  margin-bottom: 20px;
 }
 
 .about__description {
@@ -517,39 +518,39 @@ img {
 }
 
 .skills__html {
-  width: 40%;
+  width: 100%;
 }
 
 .skills__css {
-  width: 40%;
+  width: 100%;
 }
 
 .skills__js {
-  width: 60%;
+  width: 100%;
 }
 
 .skills__javaswing {
-  width: 90%;
+  width: 100%;
 }
 
 .skills__spring {
-  width: 50%;
+  width: 100%;
 }
 
 .skills__java {
-  width: 80%;
+  width: 100%;
 }
 
 .skills__php {
-  width: 70%;
+  width: 100%;
 }
 
 .skills__postgres {
-  width: 50%;
+  width: 100%;
 }
 
 .skills__pothoshop {
-  width: 50%;
+  width: 100%;
 }
 
 .skills__close .skills__list {
